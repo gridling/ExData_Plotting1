@@ -16,6 +16,7 @@ power.t <- select(power.t, Date_Time, Global_active_power:Sub_metering_3)
 power.t$Date_Time <- as.POSIXlt(power.t$Date_Time, format = "%Y-%m-%d %H:%M:%S")
 
 ## plotting the "date-GAP" smooth scatterplot
+Sys.setlocale("LC_ALL","English")
 power.t$Global_active_power <- as.numeric(power.t$Global_active_power)
 png(filename = "plot2.png", width = 480, height = 480, units = "px")
 with(power.t, plot(Date_Time, Global_active_power, 
